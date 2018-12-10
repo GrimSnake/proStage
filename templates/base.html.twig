@@ -6,6 +6,19 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block entete %}
+        <a href="{{path('prostage_resultatRecherche',{filtre:'aucun'})}}">
+        <input type="button" value="Tout afficher">
+        </a>
+        <BR/><BR/>
+        Filtrer par :
+        <a href="{{path('prostage_resultatRecherche',{filtre:'entreprises'})}}">
+        <input type="button" value="entreprises">
+        </a>
+        <a href="{{path('prostage_resultatRecherche',{filtre:'formations'})}}">
+        <input type="button" value="formations">
+        </a>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
