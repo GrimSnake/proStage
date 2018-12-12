@@ -18,24 +18,44 @@ class ProstageController extends AbstractController
     }
 
     /**
-     * @Route("/filtrer/{id}", name="prostage_filtre")
+     * @Route("/filtrer/entreprises", name="prostage_filtre_entreprises")
      */
-    public function afficherFiltres($id)
+    public function afficherFiltreEntreprises()
     {
-        return $this->render('prostage/affichageFiltre.html.twig', [
+        return $this->render('prostage/affichageFiltreEntreprises.html.twig', [
             'controller_name' => 'ProstageController',
-            'idFiltre' => $id,
         ]);
     }
 
     /**
-     * @Route("/resultatRecherche/{filtre}", name="prostage_resultatRecherche")
+     * @Route("/filtrer/formations", name="prostage_filtre_formations")
      */
-    public function afficherResultatRecherche($filtre)
+    public function afficherFiltreFormations()
     {
-        return $this->render('prostage/affichageResultatRecherche.html.twig', [
+        return $this->render('prostage/affichageFiltreFormations.html.twig', [
             'controller_name' => 'ProstageController',
-            'idFiltre' => $filtre,
+        ]);
+    }
+
+    /**
+     * @Route("/resultatRecherche/entreprises/{id}", name="prostage_resultatRecherche_entreprises")
+     */
+    public function afficherResultatRechercheEntreprises($id)
+    {
+        return $this->render('prostage/affichageResultatRechercheEntreprises.html.twig', [
+            'controller_name' => 'ProstageController',
+            'idEntreprise' => $id,
+        ]);
+    }
+
+    /**
+     * @Route("/resultatRecherche/formations/{id}", name="prostage_resultatRecherche_formations")
+     */
+    public function afficherResultatRechercheFormations($id)
+    {
+        return $this->render('prostage/affichageResultatRechercheFormations.html.twig', [
+            'controller_name' => 'ProstageController',
+            'idFormation' => $id,
         ]);
     }
 
