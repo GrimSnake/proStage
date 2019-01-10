@@ -47,7 +47,7 @@ class Stage
      * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $prise;
+    private $entreprise;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="stages")
@@ -139,14 +139,14 @@ class Stage
         return $this;
     }
 
-    public function getPrise(): ?Entreprise
+    public function getEntreprise(): ?Entreprise
     {
-        return $this->prise;
+        return $this->entreprise;
     }
 
-    public function setPrise(?Entreprise $prise): self
+    public function setEntreprise(?Entreprise $entreprise): self
     {
-        $this->prise = $prise;
+        $this->entreprise = $entreprise;
 
         return $this;
     }
