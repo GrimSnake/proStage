@@ -57,9 +57,13 @@ class ProstageController extends AbstractController
      */
     public function afficherResultatRechercheEntreprises($id)
     {
+        //Recuperer le repository de l'entité entreprises
+        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+        //Recuperer l'entreprise enregistrées en BD
+        $entreprise = $repositoryEntreprise->find($id);
         return $this->render('prostage/affichageResultatRechercheEntreprises.html.twig', [
             'controller_name' => 'ProstageController',
-            'idEntreprise' => $id
+            'entreprise' => $entreprise
         ]);
     }
 
@@ -68,9 +72,13 @@ class ProstageController extends AbstractController
      */
     public function afficherResultatRechercheFormations($id)
     {
+        //Recuperer le repository de l'entité formations
+        $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+        //Recuperer la formation enregistrées en BD
+        $formation = $repositoryFormation->findAll($id);
         return $this->render('prostage/affichageResultatRechercheFormations.html.twig', [
             'controller_name' => 'ProstageController',
-            'idFormation' => $id
+            'formation' => $formation
         ]);
     }
 
