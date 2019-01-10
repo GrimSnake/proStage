@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Entreprise;
 
 class ProstageController extends AbstractController
 {
@@ -22,8 +23,16 @@ class ProstageController extends AbstractController
      */
     public function afficherFiltreEntreprises()
     {
+      //Recuperer le repository de l'entité entreprises
+      $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+
+      //Recuperer les entreprises enregistrées en BD
+      $entreprises = $repositoryEntreprise->findAll();
+
+      //Envoyer les entreprises récuprérées à la vue chargée des les afficher
         return $this->render('prostage/affichageFiltreEntreprises.html.twig', [
             'controller_name' => 'ProstageController',
+            'entreprises' => $entreprises
         ]);
     }
 
